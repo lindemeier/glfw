@@ -118,6 +118,10 @@ extern "C" {
   #include <X11/Xlib.h>
   #include <X11/extensions/Xrandr.h>
  #endif
+ 
+ #if defined(GLFW_EXPOSE_NATIVE_WAYLAND)
+ #undef GLFW_EXPOSE_NATIVE_WAYLAND
+ #endif
 
  #if defined(GLFW_EXPOSE_NATIVE_WAYLAND)
   #include <wayland-client.h>
