@@ -120,11 +120,11 @@ extern "C" {
  #endif
  
  #if defined(GLFW_EXPOSE_NATIVE_WAYLAND)
- #undef GLFW_EXPOSE_NATIVE_WAYLAND
- #endif
-
- #if defined(GLFW_EXPOSE_NATIVE_WAYLAND)
-  #include <wayland-client.h>
+  #if __has_include(<wayland-client.h>)
+   #include <wayland-client.h>
+  #else
+   #undef GLFW_EXPOSE_NATIVE_WAYLAND
+  #endif
  #endif
 
  #if defined(GLFW_EXPOSE_NATIVE_WGL)
